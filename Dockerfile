@@ -12,7 +12,7 @@ RUN apk add --no-cache --update --upgrade \
     make \
     libffi-dev \
     nodejs \
-    python \
+    python2 \
     py-pip \
     ruby \
     ruby-dev \
@@ -28,7 +28,7 @@ RUN mkdir -p /root/go/src/github.com/gohugoio
 WORKDIR /root/go/src/github.com/gohugoio
 RUN git clone https://github.com/gohugoio/hugo
 WORKDIR /root/go/src/github.com/gohugoio/hugo
-RUN git reset --hard v0.40
+RUN git reset --hard v0.80.0
 RUN go get -v
 RUN go build -o hugo main.go
 ENV PATH="/root/go/src/github.com/gohugoio/hugo:${PATH}"
